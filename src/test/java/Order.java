@@ -1,9 +1,8 @@
 import org.example.HomePage;
-import org.example.OrderPage1;
-import org.example.OrderPage2;
-import org.example.OrderPage3;
-import org.junit.After;
-import org.junit.Assert;
+import org.example.ForWhomOrderPage;
+import org.example.AboutRentOrderPage;
+import org.example.ConfirmOrderPage;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v85.dom.model.ShadowRootType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
@@ -44,35 +42,43 @@ public class Order {
                 {"Петр", "Петров", "г.СПБ, ул.Совесткая", "89057928514", "Позвоните за час"},
         };
     }
+@Before
 
+        public void WebDriver() {
+//    ChromeOptions options = new ChromeOptions();
+//    options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
+//   WebDriver driver = new ChromeDriver(options);
+//    driver.get("https://qa-scooter.praktikum-services.ru/");
+//    HomePage objHomePage = new HomePage(driver);
+}
     @Test
     public void positiveOrderHeaderButton() {
                 ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+     driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objHomePage = new HomePage(driver);
         objHomePage.clickHeaderButtonOrder();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("Order_Content__bmtHS")));
-        OrderPage1 objOrderPage1 = new OrderPage1(driver);
-        objOrderPage1.setFirstName(firstName);
-        objOrderPage1.setSecondName(secondName);
-        objOrderPage1.setAddress(address);
-        objOrderPage1.setInputMetroStation();
-        objOrderPage1.setTelephoneNumber(telephoneNumber);
-objOrderPage1.clickButtonNext();
+        ForWhomOrderPage objForWhomOrderPage = new ForWhomOrderPage(driver);
+        objForWhomOrderPage.setFirstName(firstName);
+        objForWhomOrderPage.setSecondName(secondName);
+        objForWhomOrderPage.setAddress(address);
+        objForWhomOrderPage.setInputMetroStation();
+        objForWhomOrderPage.setTelephoneNumber(telephoneNumber);
+objForWhomOrderPage.clickButtonNext();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("Order_Checkboxes__3lWSI")));
-        OrderPage2 objOrderPage2 = new OrderPage2(driver);
+        AboutRentOrderPage objAboutRentOrderPage = new AboutRentOrderPage(driver);
 
-        objOrderPage2.setInputDeliveryDate();
-        objOrderPage2.setInputRentalPeriod2days();
-        objOrderPage2.setBlackColor();
-        objOrderPage2.setInputComment(comment);
-objOrderPage2.clickButtonOrder();
-        OrderPage3 objOrderPage3 = new OrderPage3(driver);
-        objOrderPage3.clickConfirmButton();
+        objAboutRentOrderPage.setInputDeliveryDate();
+        objAboutRentOrderPage.setInputRentalPeriod2days();
+        objAboutRentOrderPage.setBlackColor();
+        objAboutRentOrderPage.setInputComment(comment);
+objAboutRentOrderPage.clickButtonOrder();
+        ConfirmOrderPage objConfirmOrderPage = new ConfirmOrderPage(driver);
+        objConfirmOrderPage.clickConfirmButton();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='Order_ModalHeader__3FDaJ' and text()='Заказ оформлен'])")));
        driver.quit();
@@ -94,24 +100,24 @@ objOrderPage2.clickButtonOrder();
         objHomePage.clickBigButtonOrder();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("Order_Content__bmtHS")));
-        OrderPage1 objOrderPage1 = new OrderPage1(driver);
-        objOrderPage1.setFirstName(firstName);
-        objOrderPage1.setSecondName(secondName);
-        objOrderPage1.setAddress(address);
-        objOrderPage1.setInputMetroStation();
-        objOrderPage1.setTelephoneNumber(telephoneNumber);
-        objOrderPage1.clickButtonNext();
+        ForWhomOrderPage objForWhomOrderPage = new ForWhomOrderPage(driver);
+        objForWhomOrderPage.setFirstName(firstName);
+        objForWhomOrderPage.setSecondName(secondName);
+        objForWhomOrderPage.setAddress(address);
+        objForWhomOrderPage.setInputMetroStation();
+        objForWhomOrderPage.setTelephoneNumber(telephoneNumber);
+        objForWhomOrderPage.clickButtonNext();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("Order_Checkboxes__3lWSI")));
-        OrderPage2 objOrderPage2 = new OrderPage2(driver);
+        AboutRentOrderPage objAboutRentOrderPage = new AboutRentOrderPage(driver);
 
-        objOrderPage2.setInputDeliveryDate();
-        objOrderPage2.setInputRentalPeriod2days();
-        objOrderPage2.setBlackColor();
-        objOrderPage2.setInputComment(comment);
-        objOrderPage2.clickButtonOrder();
-        OrderPage3 objOrderPage3 = new OrderPage3(driver);
-        objOrderPage3.clickConfirmButton();
+        objAboutRentOrderPage.setInputDeliveryDate();
+        objAboutRentOrderPage.setInputRentalPeriod2days();
+        objAboutRentOrderPage.setBlackColor();
+        objAboutRentOrderPage.setInputComment(comment);
+        objAboutRentOrderPage.clickButtonOrder();
+        ConfirmOrderPage objConfirmOrderPage = new ConfirmOrderPage(driver);
+        objConfirmOrderPage.clickConfirmButton();
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='Order_ModalHeader__3FDaJ' and text()='Заказ оформлен'])")));
         driver.quit();
