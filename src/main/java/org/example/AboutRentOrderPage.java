@@ -3,7 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OrderPage2 {
+public class AboutRentOrderPage {
     private WebDriver driver;
     private By inputDeliveryDate = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
 private By set2August = By.xpath("//div[@aria-label='Choose пятница, 2-е августа 2024 г.']");
@@ -13,7 +13,7 @@ private By blackColor = By.id("black");
 
 private By inputComment = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
 private By buttonOrder = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");
-    public OrderPage2(WebDriver driver) {
+    public AboutRentOrderPage(WebDriver driver) {
         this.driver=driver;
     }
 

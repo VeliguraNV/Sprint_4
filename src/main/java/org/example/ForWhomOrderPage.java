@@ -3,7 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
- public class OrderPage1 {
+ public class ForWhomOrderPage {
     private WebDriver driver;
     private By inputFirstName = By.xpath("//input[@placeholder='* Имя']");
     private By inputSecondName = By.xpath("//input[@placeholder='* Фамилия']");
@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
     private By inputTelephoneNumber = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
 
     private By buttonNext = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
-    public OrderPage1(WebDriver driver) {
+    public ForWhomOrderPage(WebDriver driver) {
         this.driver=driver;
     }
 
